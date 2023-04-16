@@ -4,9 +4,10 @@ export const demos = [
     title: "hello world",
     desc: "",
     code: `
-import { rh, tools } from "${lib_src}";
+import { rh, tools, utils } from "${lib_src}";
+const { ref } = utils.reactivity;
 
-const nowDate = rh.vR.ref(new Date().toLocaleString());
+const nowDate = ref(new Date().toLocaleString());
 setInterval(() => (nowDate.value = new Date().toLocaleString()), 1000);
 
 const app = rh('h1', {}, tools.rt\`hello world, now: \$\{nowDate}\`);
@@ -17,11 +18,12 @@ document.querySelector('#app').appendChild(app);
     title: "Counter component",
     desc: "",
     code: `
-import { rh } from "${lib_src}";
+import { rh, utils } from "${lib_src}";
+const { ref } = utils.reactivity;
 
 const counter = {
     setup({ defValue = 0 }) {
-        const count = rh.vR.ref(defValue);
+        const count = ref(defValue);
         return {
         count,
         inc: () => count.value++,
@@ -48,9 +50,10 @@ rh.mount('#app', counter);
     title: "mouse position monitor",
     desc: "",
     code: `
-import { rh, tools } from "${lib_src}";
+import { rh, tools, utils } from "${lib_src}";
+const { ref } = utils.reactivity;
 
-const data = rh.vR.ref({ x: 0, y: 0 });
+const data = ref({ x: 0, y: 0 });
 window.addEventListener(
     "mousemove",
     (ev) => (data.value = { x: ev.x, y: ev.y })
