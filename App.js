@@ -78,6 +78,7 @@ const AppBody = () => {
             width: "100%",
           }),
         }),
+        rh("h2", {}, "Demos"),
         ...demos.map((demo, idx) =>
           rh(DemoViewer, {
             title: `DEMO${idx + 1}: ${demo.title}`,
@@ -88,6 +89,20 @@ const AppBody = () => {
               "border-radius: 0.5rem; box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;margin-bottom: 40px;",
           })
         )
+      ),
+      rh(
+        "div",
+        {
+          style:
+            "width: 100%; display: flex; flex-flow: column; align-items: center;",
+        },
+        rh("h2", {}, "Playground"),
+        rh(DemoViewer, {
+          defaultValue: demos[0].code,
+          width: "calc(100% - 6rem)",
+          height: "calc(100vh - 6rem)",
+          editDefaultHidden: false,
+        })
       )
     );
 };

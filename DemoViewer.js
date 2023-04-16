@@ -37,6 +37,8 @@ export const DemoViewer = ({
   defaultValue,
   width,
   height,
+  editDefaultHidden = true,
+  iframeDefaultHidden = false,
   ...props
 }) => {
   const script_text = ref(defaultValue || "");
@@ -49,8 +51,8 @@ export const DemoViewer = ({
   );
 
   const hidden_vars = {
-    textarea: ref(true),
-    iframe: ref(false),
+    textarea: ref(editDefaultHidden),
+    iframe: ref(iframeDefaultHidden),
   };
   const bodyStyleFn = () => ({
     display: "flex",
