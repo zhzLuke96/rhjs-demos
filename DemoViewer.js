@@ -1,13 +1,13 @@
 import {
   rh,
-  vRUtils,
+  utils,
   builtin,
 } from "https://unpkg.com/@rhjs/rh@latest/dist/main.modern.module.js";
 
 const { Style } = builtin;
 
-const { computed } = vRUtils;
-const { ref, unref } = rh.vR;
+const { computed, reactivity } = utils;
+const { ref, unref } = reactivity;
 
 export const MonacoEditor = ({ defaultValue, onChange, ...props }) => {
   const loadMonaco = () =>
