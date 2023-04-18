@@ -64,7 +64,7 @@ const AppBody = () => {
           }),
           "🧩 rh.js"
         ),
-        rh("p", {}, "lightweight & advanced framework.")
+        rh("p", {}, "Lightweight & Powerful framework.")
       ),
       // demos
       rh(
