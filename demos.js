@@ -1,4 +1,4 @@
-const lib_src = "https://unpkg.com/@rhjs/rh@latest/dist/main.modern.module.js";
+const lib_src = "https://unpkg.com/@rhjs/rh@latest/dist/main.modern.mjs";
 export const demos = [
   {
     title: "hello world",
@@ -54,7 +54,7 @@ import {
   tools,
   utils,
   builtin,
-} from "https://unpkg.com/@rhjs/rh@latest/dist/main.modern.module.js";
+} from "${lib_src}";
 const { ref } = utils.reactivity;
 
 const data = ref({ x: 0, y: 0 });
