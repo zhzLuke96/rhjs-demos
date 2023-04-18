@@ -2,7 +2,7 @@ import {
   rh,
   utils,
   builtin,
-} from "https://unpkg.com/@rhjs/rh@latest/dist/main.modern.module.js";
+} from "https://unpkg.com/@rhjs/rh@latest/dist/main.modern.mjs";
 
 const { Style } = builtin;
 

@@ -1,7 +1,7 @@
 import {
   rh,
   builtin,
-} from "https://unpkg.com/@rhjs/rh@latest/dist/main.modern.module.js";
+} from "https://unpkg.com/@rhjs/rh@latest/dist/main.modern.mjs";
 
 import { hero_patterns } from "./hero_patterns.js";
 import { DemoViewer } from "./DemoViewer.js";
