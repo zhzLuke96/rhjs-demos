@@ -4,15 +4,51 @@ import { DemoPage } from "./pages/DemoPage.js";
 import { PlaygroundPage } from "./pages/Playground.js";
 import { rhLoader } from "../loader.js";
 
-const { rh, builtin } = await rhLoader();
+const { rh, builtin, utils } = await rhLoader();
 const { Style } = builtin;
+const { computed } = utils;
+
+const RouterLink = ({ path, title }) => {
+  const { goto, hash_route } = connectHashRouter();
+  const cssText = computed(
+    () => `font-weight: ${hash_route.value === path ? 900 : "unset"}`
+  );
+  return () =>
+    rh(
+      "a",
+      {
+        style: cssText,
+        onclick: () => goto(path),
+      },
+      title
+    );
+};
 
 const AppHeader = () => {
-  const { goto } = connectHashRouter();
+  const links = [
+    {
+      path: "doc",
+      title: "Doc",
+    },
+    {
+      path: "component",
+      title: "Component",
+    },
+    {
+      path: "demo",
+      title: "Demo",
+    },
+    {
+      path: "playground",
+      title: "Playground",
+    },
+  ];
   return () =>
     rh(
       "nav",
-      {},
+      {
+        style: "height: 20px;",
+      },
       rh(Style, {
         styleFn: () => ({
           height: "100%",
@@ -24,10 +60,7 @@ const AppHeader = () => {
           },
         }),
       }),
-      rh("a", { onclick: () => goto("doc") }, "Doc"),
-      rh("a", { onclick: () => goto("component") }, "Component"),
-      rh("a", { onclick: () => goto("demo") }, "Demo"),
-      rh("a", { onclick: () => goto("playground") }, "Playground"),
+      ...links.map((props) => rh(RouterLink, { ...props })),
       rh(
         "a",
         { href: "https://www.github.com/zhzluke96/rh.js", target: "_blank" },
@@ -78,7 +111,7 @@ const EmptyBody =
   };
 
 export const App = () => {
-  const { addRoute, goto, RouterView } = connectHashRouter();
+  const { addRoute, RouterView } = connectHashRouter();
   addRoute("demo", DemoPage);
   addRoute("playground", PlaygroundPage);
   addRoute("doc", EmptyBody("🚧 Doc PAGE WIP 🚧"));

@@ -4,8 +4,8 @@ export const demos = [
     title: "hello world",
     desc: "",
     code: `
-import { rh, tools, utils } from "${lib_src}";
-const { ref } = utils.reactivity;
+import { rh, tools, reactivity } from "${lib_src}";
+const { ref } = reactivity;
 
 const nowDate = ref(new Date().toLocaleString());
 setInterval(() => (nowDate.value = new Date().toLocaleString()), 1000);
@@ -18,8 +18,8 @@ document.querySelector('#app').appendChild(app);
     title: "Counter component",
     desc: "",
     code: `
-import { rh, utils } from "${lib_src}";
-const { ref } = utils.reactivity;
+import { rh, reactivity } from "${lib_src}";
+const { ref } = reactivity;
 
 const counter = {
   setup({ defValue = 0 }) {
@@ -52,10 +52,10 @@ rh.mount('#app', counter);
 import {
   rh,
   tools,
-  utils,
+  reactivity,
   builtin,
 } from "${lib_src}";
-const { ref } = utils.reactivity;
+const { ref } = reactivity;
 
 const data = ref({ x: 0, y: 0 });
 window.addEventListener(
