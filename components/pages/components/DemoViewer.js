@@ -1,11 +1,7 @@
-import {
-  rh,
-  utils,
-  builtin,
-} from "https://unpkg.com/@rhjs/rh@latest/dist/main.modern.mjs";
+import { rhLoader } from "../../../loader.js";
 
+const { rh, utils, builtin } = await rhLoader();
 const { Style } = builtin;
-
 const { computed, reactivity } = utils;
 const { ref, unref } = reactivity;
 
@@ -89,7 +85,7 @@ export const DemoViewer = ({
       title ? rh("p", {}, title) : null,
       rh(
         "div",
-        {},
+        { style: "display: flex; align-items: center; height: 30px;" },
         rh(
           "div",
           { style: "display: inline-block; width: 50%;" },

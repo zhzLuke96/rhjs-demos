@@ -1,4 +1,4 @@
-const lib_src = "https://unpkg.com/@rhjs/rh@latest/dist/main.modern.mjs";
+const lib_src = "https://unpkg.com/@rhjs/rh@latest/dist/main.module.mjs";
 export const demos = [
   {
     title: "hello world",
