@@ -1,10 +1,11 @@
-const lib_src = "https://unpkg.com/@rhjs/rh@latest/dist/main.module.mjs";
+const version = "0.0.34";
+const package_url = `https://unpkg.com/@rhjs/rh@${version}/dist/main.module.mjs`;
 export const demos = [
   {
     title: "hello world",
     desc: "",
     code: `
-import { rh, tools, reactivity } from "${lib_src}";
+import { rh, tools, reactivity } from "${package_url}";
 const { ref } = reactivity;
 
 const nowDate = ref(new Date().toLocaleString());
@@ -18,7 +19,7 @@ document.querySelector('#app').appendChild(app);
     title: "Counter component",
     desc: "",
     code: `
-import { rh, reactivity } from "${lib_src}";
+import { rh, reactivity } from "${package_url}";
 const { ref } = reactivity;
 
 const counter = {
@@ -54,7 +55,7 @@ import {
   tools,
   reactivity,
   builtin,
-} from "${lib_src}";
+} from "${package_url}";
 const { ref } = reactivity;
 
 const data = ref({ x: 0, y: 0 });

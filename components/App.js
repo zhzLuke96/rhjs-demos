@@ -2,9 +2,9 @@ import { hero_patterns } from "./hero_patterns.js";
 import { connectHashRouter } from "./HashRouter.js";
 import { DemoPage } from "./pages/DemoPage.js";
 import { PlaygroundPage } from "./pages/Playground.js";
-import { rhLoader } from "../loader.js";
 
-const { rh, builtin, utils } = await rhLoader();
+import { rh, builtin, utils } from "@rhjs/rh";
+
 const { Style } = builtin;
 const { computed } = utils;
 

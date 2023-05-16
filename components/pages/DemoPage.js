@@ -1,10 +1,9 @@
-import { rhLoader } from "../../loader.js";
 import { hero_patterns } from "../hero_patterns.js";
 
 import { DemoViewer } from "./components/DemoViewer.js";
 import { demos } from "./demos.js";
 
-const { rh, builtin } = await rhLoader();
+import { rh, builtin } from "@rhjs/rh";
 const { Style, Fragment } = builtin;
 
 const DemoPageBody = () => {

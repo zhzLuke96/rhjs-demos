@@ -1,7 +1,5 @@
-import { rhLoader } from "./loader.js";
+import { rh } from "@rhjs/rh";
 import { App } from "./components/App.js";
-
-const { rh } = await rhLoader();
 
 const app = rh(App);
 document.body.appendChild(app);

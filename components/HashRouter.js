@@ -1,6 +1,4 @@
-import { rhLoader } from "../loader.js";
-
-const { reactivity, utils, rh } = await rhLoader();
+import { reactivity, utils, rh } from "@rhjs/rh";
 
 const { watch } = utils;
 const { ref, readonly } = reactivity;

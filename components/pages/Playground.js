@@ -1,9 +1,7 @@
 import { DemoViewer } from "./components/DemoViewer.js";
 import { demos } from "./demos.js";
-import { rhLoader } from "../../loader.js";
 
-const { rh, builtin } = await rhLoader();
-const { Style } = builtin;
+import { rh, builtin } from "@rhjs/rh";
 
 export const PlaygroundPage = () => {
   return () =>
